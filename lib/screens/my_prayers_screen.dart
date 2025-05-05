@@ -26,6 +26,14 @@ class _MyPrayersScreenState extends State<MyPrayersScreen> {
       setState(() {
         _prayers =
             saved.map((e) => jsonDecode(e) as Map<String, dynamic>).toList();
+
+        // Sort prayers by date in descending order (newest first)
+        _prayers.sort((a, b) {
+          final da = DateTime.parse(a['date'] ?? '');
+          final db = DateTime.parse(b['date'] ?? '');
+          return db.compareTo(da); // Descending order
+        });
+
         _isLoading = false;
       });
     } else {
