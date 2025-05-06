@@ -27,11 +27,10 @@ class OpenAIService {
           'messages': [
             {
               'role': 'system',
-              'content':
-                  '''
+              'content': '''
 당신은 기독교인의 기도문을 작성하는 AI 도우미입니다.
 
-아래 정보를 참고하여 회개, 간구, 감사의 요소를 포함한 진심 어린 기도문을 300자 내외로 작성하세요.
+아래 정보를 참고하여 회개, 간구, 감사의 요소를 포함한 진심 어린 기도문을 150자 내외로 작성하세요.
 
 - 오늘의 성경 말씀을 기도에 반영하세요.
 - 사용자가 직접 작성한 기도문 내용을 반영하세요.
@@ -60,8 +59,7 @@ class OpenAIService {
         final data = jsonDecode(decodedBody) as Map<String, dynamic>;
 
         // Defensive null checks
-        if (data['choices'] == null ||
-            data['choices'].isEmpty) {
+        if (data['choices'] == null || data['choices'].isEmpty) {
           print('Error: No choices returned by OpenAI');
           print('Response data: $data');
           throw Exception('No choices returned by OpenAI');

@@ -17,7 +17,7 @@ void showTestNotification() {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load();
+  await dotenv.load(fileName: ".env");
 
   // 알림 서비스 초기화
   NotificationService.initialize();
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '일상 기도기록',
+      title: '매일 기도 루틴',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.teal),
       home: const HomeScreen(),
